@@ -1,0 +1,70 @@
+
+    .navbar-light .navbar-nav .nav-link {
+      color: white;
+    }
+
+    .navbar-light .navbar-toggler-icon {
+      background-color: white;
+    }
+
+    /* Dropdown styles */
+    .navbar-light .navbar-nav .nav-item.dropdown:hover > .nav-link {
+      color: white;
+    }
+
+    .navbar-light .navbar-nav .nav-item.dropdown:hover > .nav-link:hover {
+      color: white;
+    }
+
+    .navbar-light .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+      background-color: #191c24;
+    }
+
+    .navbar-light .navbar-nav .nav-item.dropdown .dropdown-menu .dropdown-item {
+      color: white;
+    }
+
+    .navbar-light
+      .navbar-nav
+      .nav-item.dropdown
+      .dropdown-menu
+      .dropdown-divider {
+      border-top-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-light
+      .navbar-nav
+      .nav-item.dropdown
+      .dropdown-menu
+      .dropdown-item:hover {
+      background-color: #191c24;
+    }
+
+    p {
+      color: azure;
+    }
+
+    /* Other styles */
+    body {
+      color: white;
+    }
+
+    nav {
+      background-color: #191c24;
+    }
+
+    body {
+      background-color: black;
+    }
+
+    .col {
+      background-color: #bf165f;
+      border-radius: 0.5rem;
+    }
+
+    .stats {
+      background-color: #191c24;
+      border-radius: 0.5rem;
+    }
+
+    /* Add more styles as needed for other elements in your website */

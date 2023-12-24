@@ -17,6 +17,13 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public UserDTO createUser(SignupDTO signupDTO) {
+
+        User StoredUserdetails= userRepository.findByEmail(signupDTO.getEmail());
+
+        if (StoredUserdetails != null) {
+            throw new RuntimeException("Record already exists with this email");
+        }
+        
         User user = new User();
         user.setName(signupDTO.getName());
         user.setEmail(signupDTO.getEmail());

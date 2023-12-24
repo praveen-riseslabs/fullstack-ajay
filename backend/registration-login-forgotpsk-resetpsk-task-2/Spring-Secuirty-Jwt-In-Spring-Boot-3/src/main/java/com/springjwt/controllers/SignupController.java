@@ -18,11 +18,16 @@ public class SignupController {
 
     @PostMapping("/sign-up")
     public ResponseEntity<?> signupUser(@RequestBody SignupDTO signupDTO) {
-       UserDTO createdUser = authService.createUser(signupDTO);
-       if (createdUser == null){
-           return new ResponseEntity<>("User not created, come again later!", HttpStatus.BAD_REQUEST);
-       }
-       return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+        try {
+            UserDTO userDTO = authService.createUser(signupDTO);
+            if (userDTO == null){
+              return new ResponseEntity<>("User not created, come again later!", HttpStatus.BAD_REQUEST);
+          }
+            return new ResponseEntity<>(userDTO, HttpStatus.CREATED);
+        } catch (RuntimeException e) {
+            String errorMessage = e.getMessage();
+            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+        }
     }
 
 }

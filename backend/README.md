@@ -27,7 +27,7 @@ To create the project, follow these steps:
 
 ## Database Setup
 
-Configure the MySQL database connection in the `application.properties`/`application.yml` file.
+Configure the MySQL database connection in the `application.properties file.
 
 create the database your_database
 

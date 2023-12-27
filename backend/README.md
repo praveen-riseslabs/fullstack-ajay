@@ -41,7 +41,7 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 
 
-## Database Setup
+## Email Setup
 
 Configure the email connection in the application.properties file.
 

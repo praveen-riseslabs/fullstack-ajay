@@ -15,9 +15,21 @@ A Spring Boot project implementing registration, login, forgot password, and res
 - commons-lang3 (org.apache.commons)
 - jjwt (io.jsonwebtoken)
 
+## Getting Started
+
+To create the project, follow these steps:
+
+1. Go to [https://start.spring.io/](https://start.spring.io/) and generate a project with the following settings:
+   - Project: Maven
+   - Language: Java
+   - Spring Boot: 3.2.0
+   - Dependencies: Java Mail Sender, Spring Web, Spring Security, Dev Tools, MySQL Driver, Spring Data JPA add other dependancies mannually
+
 ## Database Setup
 
 Configure the MySQL database connection in the `application.properties`/`application.yml` file.
+
+create the database your_database
 
 ```properties
 # Data source properties

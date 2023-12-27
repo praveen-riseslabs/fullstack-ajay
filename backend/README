@@ -1,1 +1,10 @@
 
+# Project Name
+
+Login page, Registration page, Forgot Password, ResetPassword page,
+
+BACKEND CODE
+
+## MySQL Database Setup
+
+CREATE DATABASE IF NOT EXISTS db;

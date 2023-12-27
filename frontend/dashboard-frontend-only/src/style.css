@@ -64,6 +64,13 @@
   .stats {
     background-color: #191c24;
     border-radius: 0.5rem;
+    max-width: 100%;
+  }
+  .stats img {
+    max-width: 100%; /* Make the image responsive within its container */
+    height: auto;
+    display: block; /* Remove any extra space below the image */
+    margin: 0 auto; /* Center the image horizontally within its container */
   }
   .banner{
     background-image:url(/src/img/banner-gradient.jpg);
@@ -195,4 +202,5 @@ table{
   align-items: center; /* Vertically center the items */
    /* Adjust the height of the row as needed */
 }
+
 

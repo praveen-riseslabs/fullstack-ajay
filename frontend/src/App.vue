@@ -28,18 +28,21 @@
             </ul>
           </li>
         </ul>
-        <i class="uil uil-search search-icon" id="searchIcon"></i>
-        <form autocomplete="off" @submit.prevent="submitForm" class="d-flex" role="search">
-          <div class=" form-control me-2 autocomplete " style="position: absolute; top: 100%; width: 100%;">
+        <div v-if="isDashboardPage">
 
-            <input class="col-md-2 mx-1 flex-row" ref="myInput" aria-label="Search" type="text" name="myCountry"
-              placeholder="Search" @input="handleInput" />
+          <form autocomplete="off" @submit.prevent="submitForm" class="d-flex" role="search">
+            <div class=" form-control me-2 autocomplete " style="position: absolute; top: 100%; width: 100%;">
 
-            <button type="submit" value="Submit" class="btn btn-outline-light">Serch</button>
+              <input class="col-md-2 mx-1 flex-row" ref="myInput" aria-label="Search" type="text" name="myCountry"
+                placeholder="Search" @input="handleInput" />
 
-          </div>
+              <button type="submit" value="Submit" class="btn btn-outline-light">Serch</button>
 
-        </form>
+            </div>
+
+          </form>
+        </div>
+
         <div v-if="isDashboardPage" class="row">
           <div class="col p-0 mx-3">
             <img class="img-xs rounded-circle mx-1" height="40px" width="35px"

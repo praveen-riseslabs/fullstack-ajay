@@ -3,7 +3,7 @@
   
   <div class="banner col-pro-banner col p-5 text-center">
     <h1>want more features?</h1>
-    <div class="d-grid gap-2 col-4 mx-auto">
+    <div class="d-grid col-1 mx-auto">
       <button class="btn btn-outline-info" type="button">Get Pro</button>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg stats" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg stats" data-bs-theme="dark" style="position: relative;">
     <div class="container">
       <a class="navbar-brand" href="#"><img src="../src/img/logo.webp" alt=""></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -28,9 +28,17 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control mx-4" type="search" placeholder="Search" aria-label="Search" />
-          <button type="button" class="btn btn-outline-light">Serch</button>
+        <i class="uil uil-search search-icon" id="searchIcon"></i>
+        <form autocomplete="off" @submit.prevent="submitForm" class="d-flex" role="search">
+          <div class=" form-control me-2 autocomplete " style="position: absolute; top: 100%; width: 100%;">
+
+            <input class="col-md-2 mx-1 flex-row" ref="myInput" aria-label="Search" type="text" name="myCountry"
+              placeholder="Search" @input="handleInput" />
+
+            <button type="submit" value="Submit" class="btn btn-outline-light">Serch</button>
+
+          </div>
+
         </form>
         <div v-if="isDashboardPage" class="row">
           <div class="col p-0 mx-3">
@@ -57,11 +65,11 @@
 
           </div>
           <div class="col">
-              <a class="btn btn-outline-light " data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                aria-controls="offcanvasExample">
-                <i class="text-white fa-solid fa-bars"></i>
-              </a>
-            </div>
+            <a class="btn btn-outline-light " data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+              aria-controls="offcanvasExample">
+              <i class="text-white fa-solid fa-bars"></i>
+            </a>
+          </div>
         </div>
         <div v-else>
           <div class="mx-3">
@@ -71,10 +79,10 @@
             </button>
           </div>
         </div>
-        </div>
-
       </div>
-    
+
+    </div>
+
   </nav>
 
   <!-- used Offcanvas from bootstrap  -->
@@ -144,14 +152,106 @@ export default {
       return this.$route.path === "/dashboard";
     },
   },
+  methods: {
+    handleInput() {
+      /* initiate the autocomplete function on the "myInput" element, 
+         and pass along the countries array as possible autocomplete values: */
+      this.autocomplete(this.$refs.myInput, this.countries);
+    },
+    autocomplete(inp, arr) {
+      var currentFocus;
+      inp.addEventListener("input", function () {
+        var a, b, i, val = this.value;
+        closeAllLists();
+        if (!val) { return false; }
+        currentFocus = -1;
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        this.parentNode.appendChild(a);
+        for (i = 0; i < arr.length; i++) {
+          if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            b = document.createElement("DIV");
+            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+            b.innerHTML += arr[i].substr(val.length);
+            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+            b.addEventListener("click", function () {
+              inp.value = this.getElementsByTagName("input")[0].value;
+              closeAllLists();
+            });
+            a.appendChild(b);
+          }
+        }
+      });
+
+      inp.addEventListener("keydown", function (e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+          currentFocus++;
+          addActive(x);
+        } else if (e.keyCode == 38) {
+          currentFocus--;
+          addActive(x);
+        } else if (e.keyCode == 13) {
+          e.preventDefault();
+          if (currentFocus > -1) {
+            if (x) x[currentFocus].click();
+          }
+        }
+      });
+
+      function addActive(x) {
+        if (!x) return false;
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        x[currentFocus].classList.add("autocomplete-active");
+      }
+
+      function removeActive(x) {
+        for (var i = 0; i < x.length; i++) {
+          x[i].classList.remove("autocomplete-active");
+        }
+      }
+
+      function closeAllLists(elmnt) {
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+          if (elmnt != x[i] && elmnt != inp) {
+            x[i].parentNode.removeChild(x[i]);
+          }
+        }
+      }
+
+      document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+      });
+    },
+    submitForm() {
+      // Handle form submission logic here
+      console.log("Form submitted");
+    },
+  },
+  data() {
+    return {
+      countries: [
+        "Home", "About", "Services", "Profile", "want more features?", "Get pro", "Welcome To The Place Where You Get Great Services", "Your Stisfication Is Our Happiness", "Revenue current", "Admin dashboard design", "Broadcast web app mockup ", "Transfer to Paypal", "Revenue Sales", "Our Happy Clients", "Messages", "Leonard", "Luella Mills", "Ethel Kelly", "Grateful for our clients", "To do list", "Our Service Accross the Globe", "support", "customers accross the Globe", "Get connected with us on social", "networks", "PRODUCTS", "CONTACT"
+
+      ],
+    };
+  },
 };
 </script>
 
 
 <style>
 @import "/src/style.css";
+
 .nodecoration {
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Inherit color from parent */
+  text-decoration: none;
+  /* Remove underline */
+  color: inherit;
+  /* Inherit color from parent */
 }
 </style>

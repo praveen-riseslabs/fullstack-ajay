@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg stats" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg bg-dash" data-bs-theme="dark">
     <div class="container">
       <a class="navbar-brand" href="#"><img src="../src/img/logo.webp" alt="" /></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -82,7 +82,7 @@
       </div>
     </div>
   </nav>
-  <div class="offcanvas offcanvas-start stats" tabindex="-1" id="offcanvasExample"
+  <div class="offcanvas offcanvas-start bg-dash" tabindex="-1" id="offcanvasExample"
     aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">

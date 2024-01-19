@@ -31,7 +31,7 @@ Configure the MySQL database connection in the `application.properties file.
 
 create the database your_database
 
-# Data source properties
+# Database Setup
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/your_database
 spring.datasource.username=root
@@ -41,7 +41,7 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
 
-## Database Setup
+
 
 Configure the email connection in the application.properties file.
 

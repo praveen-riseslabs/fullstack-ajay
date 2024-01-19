@@ -43,9 +43,10 @@ spring.jpa.show-sql=true
 
 
 
-Configure the email connection in the application.properties file.
+
 
 # Email properties
+Configure the email connection in the application.properties file.
 ```properties
 spring.mail.host=smtp.gmail.com
 spring.mail.port=587

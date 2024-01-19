@@ -25,13 +25,11 @@ To create the project, follow these steps:
    - Spring Boot: 3.2.0
    - Dependencies: Java Mail Sender, Spring Web, Spring Security, Dev Tools, MySQL Driver, Spring Data JPA add other dependancies mannually
 
-## Database Setup
 
+## Database Setup
 Configure the MySQL database connection in the `application.properties file.
 
 create the database your_database
-
-# Database Setup
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/your_database
 spring.datasource.username=root
@@ -45,7 +43,7 @@ spring.jpa.show-sql=true
 
 
 
-# Email properties
+## Email properties
 Configure the email connection in the application.properties file.
 ```properties
 spring.mail.host=smtp.gmail.com
